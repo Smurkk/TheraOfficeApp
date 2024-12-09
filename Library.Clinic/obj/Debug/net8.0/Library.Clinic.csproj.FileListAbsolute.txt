@@ -1,0 +1,13 @@
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\bin\Debug\net8.0\Library.Clinic.deps.json
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\bin\Debug\net8.0\Library.Clinic.dll
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\bin\Debug\net8.0\Library.Clinic.pdb
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.AssemblyInfoInputs.cache
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.AssemblyInfo.cs
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.csproj.CoreCompileInputs.cache
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.sourcelink.json
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.dll
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\refint\Library.Clinic.dll
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.pdb
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\ref\Library.Clinic.dll
+C:\Users\bossm\Source\Repos\ClinicManagement\Library.Clinic\obj\Debug\net8.0\Library.Clinic.csproj.AssemblyReference.cache
