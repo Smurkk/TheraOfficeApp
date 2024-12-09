@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace App.Clinic.ViewModels
 {
-    public class PatientManagementViewModel : INotifyPropertyChanged
+    public class PhysicianManagementViewModel : INotifyPropertyChanged
     {
-        public PatientManagementViewModel()
+        public PhysicianManagementViewModel()
         {
             SortChoices = new List<SortChoiceEnum>
             {
@@ -29,11 +29,10 @@ namespace App.Clinic.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        public List<SortChoiceEnum> SortChoices  { get; set; }
+        public List<SortChoiceEnum> SortChoices { get; set; }
 
         private SortChoiceEnum sortChoice;
-        public SortChoiceEnum SortChoice 
+        public SortChoiceEnum SortChoice
         {
             get
             {
@@ -45,59 +44,59 @@ namespace App.Clinic.ViewModels
                 if (sortChoice != value)
                 {
                     sortChoice = value;
-                    NotifyPropertyChanged("Patients");
+                    NotifyPropertyChanged("Physicians");
                 }
             }
         }
-        public PatientViewModel? SelectedPatient { get; set; }
         public string? Query { get; set; }
-        public ObservableCollection<PatientViewModel> Patients
+
+        public PhysicianViewModel? SelectedPhysician { get; set; }
+        public ObservableCollection<PhysicianViewModel> Physicians
         {
             get
             {
-                var retVal = new ObservableCollection<PatientViewModel>(
-                    PatientServiceProxy
+                var retVal = new ObservableCollection<PhysicianViewModel>(
+                    PhysicianServiceProxy
                     .Current
-                    .Patients
+                    .Physicians
                     .Where(p => p != null)
                     .Where(p => p.Name.ToUpper().Contains(Query?.ToUpper() ?? string.Empty))
-                    .Where(p => p.InsurancePolicy != null)
-                    .Select(p => new PatientViewModel(p))
+                    .Select(p => new PhysicianViewModel(p))
                     );
 
-                if(SortChoice == SortChoiceEnum.NameAscending)
+
+                if (SortChoice == SortChoiceEnum.NameAscending)
                 {
-                    return new ObservableCollection<PatientViewModel>(retVal.OrderBy(p => p.Name));
+                    return new ObservableCollection<PhysicianViewModel>(retVal.OrderBy(p => p.Name));
                 }
                 else
                 {
-                    return new ObservableCollection<PatientViewModel>(retVal.OrderByDescending(p => p.Name));
+                    return new ObservableCollection<PhysicianViewModel>(retVal.OrderByDescending(p => p.Name));
                 }
-                
             }
         }
 
         public void Delete()
         {
-            if (SelectedPatient == null)
+            if (SelectedPhysician== null)
             {
                 return;
             }
-            PatientServiceProxy.Current.DeletePatient(SelectedPatient.Id);
+            PhysicianServiceProxy.Current.DeletePhysician(SelectedPhysician.Id);
 
             Refresh();
         }
 
         public void Refresh()
         {
-            NotifyPropertyChanged(nameof(Patients));
+            NotifyPropertyChanged(nameof(Physicians));
         }
 
         public async void Search()
         {
-            if (Query != null) 
-            { 
-                await PatientServiceProxy.Current.Search(Query);
+            if (Query != null)
+            {
+                await PhysicianServiceProxy.Current.Search(Query);
             }
             Refresh();
         }

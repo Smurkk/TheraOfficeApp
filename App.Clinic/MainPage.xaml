@@ -6,8 +6,9 @@
     <ScrollView>
         <VerticalStackLayout>
             <Button Grid.Row="0" Text="Manage Patients" Clicked="PatientsClicked"/>
-            <Button Grid.Row="1" Text="Manage Physicians" />
-            <Button Grid.Row="2" Text="Manage Appointments" />
+            <Button Grid.Row="1" Text="Manage Physicians" Clicked="PhysiciansClicked"/>
+            <Button Grid.Row="2" Text="Manage Appointments" Clicked="AppointmentsClicked" />
+            <Button Grid.Row="3" Text="Manage Treatments" Clicked="TreatmentsClicked" />
         </VerticalStackLayout>
     </ScrollView>
 

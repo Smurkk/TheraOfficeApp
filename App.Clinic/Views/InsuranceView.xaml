@@ -1,0 +1,17 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Clinic.Views.InsuranceView"
+             Title="Insurance Details">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Insurance Policy:" VerticalTextAlignment="Center"/>
+            <Entry Grid.Column="1" Text="{Binding InsurancePolicy}"/>
+        </Grid>
+        <Button Text="Add" Clicked="AddClicked" />
+        <Button Text="Cancel" Clicked="CancelClicked" />
+    </VerticalStackLayout>
+</ContentPage>

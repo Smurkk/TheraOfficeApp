@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library.Clinic.Models
 {
-    public class Patient
+    public class Physician
     {
         public override string ToString()
         {
@@ -24,11 +24,11 @@ namespace Library.Clinic.Models
         }
         public int Id { get; set; }
         public string? Name { get; set; }
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
         public string? Address { get; set; }
         public string? SSN { get; set; }
 
-        public double InsurancePolicy {  get; set; }
+        public double InsurancePolicy { get; set; }
         public string abcd1 { get; set; }
         public string abcd2 { get; set; }
         public string abcd3 { get; set; }
@@ -39,7 +39,7 @@ namespace Library.Clinic.Models
         public string abcd8 { get; set; }
 
 
-        public Patient()
+        public Physician()
         {
             Name = string.Empty;
             Address = string.Empty;
@@ -48,28 +48,28 @@ namespace Library.Clinic.Models
             InsurancePolicy = 0;
         }
 
-        public Patient(PatientDTO p)
+        public Physician(PhysicianDTO dto)
         {
-            Id = p.Id;
-            Name = p.Name;
-            Birthday = p.Birthday;
-            Address = p.Address;
-            SSN = p.SSN;
-            InsurancePolicy = p.InsurancePolicy;
+            Id = dto.Id;
+            Name = dto.Name; 
+            Birthday = dto.Birthday ?? DateTime.MinValue; 
+            Address = dto.Address ?? string.Empty; 
+            SSN = dto.SSN ?? string.Empty; 
         }
 
-        public static explicit operator Patient(PatientDTO dto)
+        public static explicit operator Physician(PhysicianDTO dto)
         {
-            return new Patient
+            return new Physician
             {
                 Id = dto.Id,
                 Name = dto.Name,
                 Birthday = dto.Birthday,
                 Address = dto.Address,
-                SSN = dto.SSN,
-                InsurancePolicy = dto.InsurancePolicy
+                SSN = dto.SSN
             };
         }
+
+
 
     }
 }

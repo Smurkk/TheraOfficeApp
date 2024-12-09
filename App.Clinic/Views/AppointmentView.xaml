@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Clinic.Views.AppointmentView"
+             Title="AppointmentView"
+             >
+    <VerticalStackLayout>
+        <Label Text="Please enter appointment times between 8:00 AM and 5:00 PM." FontAttributes="Bold" TextColor="Red"/>
+        <Label Text="Patient"/>
+        <Picker ItemsSource="{Binding Patients}" SelectedItem="{Binding SelectedPatient}"/>
+        <Label Text="Treatment"/>
+        <Picker ItemsSource="{Binding Treatments}" SelectedItem="{Binding SelectedTreatment}"/>
+        <Label Text="Appointment Start"></Label>
+        <DatePicker Date="{Binding StartDate}" MinimumDate="{Binding MinStartDate}"/>
+        <TimePicker Time="{Binding StartTime}" PropertyChanged="TimePicker_PropertyChanged"/>
+        <Label Text="Appointment End"></Label>
+        <DatePicker Date="{Binding EndDate}" MinimumDate="{Binding MinStartDate}"/>
+        <TimePicker Time="{Binding EndTime}" PropertyChanged="TimePicker_PropertyChanged"/>
+        <Label Text="{Binding ErrorMessage}" TextColor="Red" FontAttributes="Bold" IsVisible="{Binding ErrorMessage, Converter={StaticResource StringToVisibilityConverter}}"/>
+        <Button Text="Ok" Clicked="OkClicked"/>
+        <Button Text="Cancel" Clicked="CancelClicked"/>
+    </VerticalStackLayout>
+
+</ContentPage>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Clinic.Views.AppointmentManagement"
+             Title="AppointmentManagement"
+             >
+    <VerticalStackLayout>
+        <ListView
+            ItemsSource="{Binding Appointments}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column ="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column ="0" Text="Patient: "/>
+                                <Label Grid.Column="1" Text ="{Binding PatientName}" />
+                                <Label Grid.Column ="2" Text="Treatment: "/>
+                                <Label Grid.Column="3" Text ="{Binding TreatmentName}" /> 
+                            </Grid>
+                            <Grid Grid.Column ="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column ="0" Text="Price of Appointment: "/>
+                                <Label Grid.Column="1" Text ="{Binding Price}" />
+                            </Grid>
+                            <Grid Grid.Column ="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column ="0" Text="Appointment Start: "/>
+                                <Label Grid.Column="1" Text ="{Binding StartDate}" />
+                            </Grid>
+                            <Grid Grid.Column = "3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="3*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column ="0" Text="Appointment End: "/>
+                                <Label Grid.Column="1" Text ="{Binding EndDate}" />
+                                <Button Grid.Column="2" Text="Details" Clicked="DetailsClicked"/>
+                            </Grid>
+                            
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Schedule Appointment" Clicked = "AddClicked"/>
+        <Button Text="Cancel" Clicked="CancelClicked" />
+    </VerticalStackLayout>
+</ContentPage>
